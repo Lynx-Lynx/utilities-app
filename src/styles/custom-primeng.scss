@@ -1,0 +1,100 @@
+.custom-prime-input > input {
+  height: 2.5rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+
+  &:focus-visible {
+    box-shadow: 0 0 5px 1px white;
+    border-radius: 4px;
+    outline: none;
+  }
+}
+
+.custom-prime-table {
+  width: 100%;
+  border: 1px solid #59585a;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+
+  .group-header {
+    background-image: linear-gradient(117deg, #131313 0%, #595959 74%);
+  }
+
+  table {
+    width: stretch;
+
+    th,
+    td {
+      padding: 1rem 0.5rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+    tbody {
+      tr:not(:last-of-type) {
+        border-bottom: 1px solid #59585a;
+      }
+    }
+  }
+
+  .cell--nested {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.custom-prime-paginator {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #59585a;
+  padding: 0.5rem;
+  gap: 1rem;
+
+  > span {
+    display: inline-flex;
+  }
+
+  > span:first-of-type {
+    margin-right: auto;
+    padding-left: 0.5rem;
+  }
+
+  p-select {
+    display: inline-flex;
+    position: relative;
+    > span {
+      border: 1px solid #59585a;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      min-width: 2.2rem;
+      text-align: center;
+    }
+    
+    > div {
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+p-overlay {
+  ul {
+    border: 1px solid #59585a;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-image: linear-gradient(117deg, #131313 0%, #595959 74%);
+
+    li {
+      padding: 0.5rem 0;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

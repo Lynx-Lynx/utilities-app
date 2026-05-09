@@ -1,0 +1,30 @@
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  &__button {
+    transition: border-color 0.3s ease-in-out;
+    &:hover {
+      border-color: #eb4335 #4385f4 #35a854 #fbbc05;
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    color: grey;
+  }
+
+  .google-logo {
+    width: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}

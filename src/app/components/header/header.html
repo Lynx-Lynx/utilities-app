@@ -1,0 +1,8 @@
+@let user = authService.user();
+
+<nav class="header">
+  <button class="header__tab" [class.tab--selected]="activeTab() === 0" (click)="switchTab(0)">Current month</button>
+  <button class="header__tab" [class.tab--selected]="activeTab() === 1" (click)="switchTab(1)">History</button>
+  <button class="header__tab" [class.tab--selected]="activeTab() === 2" (click)="switchTab(2)">Settings</button>
+  <img class="header__logo" [src]="user?.picture" [alt]="user?.name">
+</nav>

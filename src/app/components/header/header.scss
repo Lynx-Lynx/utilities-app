@@ -1,0 +1,29 @@
+@use '../../../styles/variables.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  font-family: "Unica One", sans-serif;
+
+  &__tab {
+    padding: 0 1rem 0.5rem;
+    border-bottom: 3px solid transparent;
+    // &:hover {
+    //   outline: 1px solid $graphite;
+    //   border-radius: 1rem;
+    // }
+  }
+
+  &__logo {
+    margin-left: auto;
+    border-radius: 50%;
+    width: 50px;
+  }
+}
+
+.tab--selected {
+  border-bottom: 3px solid $graphite;
+}
