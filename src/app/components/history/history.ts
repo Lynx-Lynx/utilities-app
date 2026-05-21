@@ -5,11 +5,11 @@ import { HttpService } from '../../services/http.service';
 import { HistoryRecord, TableData } from './history.interface';
 import { DatePipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Header } from '../header/header';
 
 @Component({
   selector: 'app-history',
-  imports: [Header, TableModule],
+  standalone: true,
+  imports: [TableModule],
   providers: [DatePipe],
   templateUrl: './history.html',
   styleUrl: './history.scss',

@@ -34,6 +34,7 @@ yarn-error.log
 .sass-cache/
 /connect.lock
 /coverage
+/src/environments
 /libpeerconnection.log
 testem.log
 /typings
@@ -42,3 +43,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Editors
+.vscode/

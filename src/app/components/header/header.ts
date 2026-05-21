@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -20,5 +21,6 @@ export class Header {
   public switchTab(index: number): void {
     this.activeTab.set(index);
     this.router.navigate([`/${this.tabs.at(index)}`]);
+    console.log(this.route.snapshot)
   }
 }
