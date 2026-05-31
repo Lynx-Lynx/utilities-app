@@ -4,10 +4,16 @@ import { History } from './components/history/history';
 import { Settings } from './components/settings/settings';
 import { authGuard } from './guards/auth-guard';
 import { Login } from './components/login/login';
+import { Layout } from './components/layout/layout';
 
 export const routes: Routes = [
   {
+    path: 'login',
+    component: Login,
+  },
+  {
     path: '',
+    component: Layout,
     canActivate: [authGuard],
     children: [
       {
@@ -22,10 +28,6 @@ export const routes: Routes = [
       {
         path: 'history',
         component: History,
-      },
-      {
-        path: 'login',
-        component: Login,
       },
       {
         path: 'settings',

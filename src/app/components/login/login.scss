@@ -6,6 +6,12 @@
   align-items: center;
   gap: 3rem;
 
+  &__description-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   &__button {
     transition: border-color 0.3s ease-in-out;
     &:hover {

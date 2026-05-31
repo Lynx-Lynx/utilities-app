@@ -13,6 +13,5 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({ unstyled: true }),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideAppInitializer(() => inject(AuthService).getUserInfo()),
-    provideRouter(routes)
   ],
 };

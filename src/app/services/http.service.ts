@@ -1,14 +1,39 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { HistoryRecord } from "../components/history/history.interface";
-import { environment } from "../environments/environment";
+import { HttpClient } from '@angular/common/http';
+import { Injectable, signal, WritableSignal } from '@angular/core';
+import { catchError, EMPTY, Observable, of, tap } from 'rxjs';
+import { HistoryRecord } from '../components/history/history.interface';
+import { environment } from '../../environments/environment';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class HttpService {
-  constructor(private http: HttpClient) {}
+  private readonly recordsCache: WritableSignal<HistoryRecord[] | null>;
+
+  constructor(private http: HttpClient) {
+    this.recordsCache = signal(null);
+  }
+
+  public getLatestRecord(): Observable<HistoryRecord> {
+    return this.http
+      .get<HistoryRecord>(`${environment.host}/api/utilities/latest`)
+      .pipe(
+        // tap((records) => this.recordsCache.set(records)),
+        // catchError((err) => {
+        //   this.recordsCache.set(null);
+        //   return of(err);
+        // })
+      );
+  }
 
   public getHistory(): Observable<HistoryRecord[]> {
-    return this.http.get<HistoryRecord[]>(`${environment.host}/api/utilities`);
+    if (this.recordsCache()) return of(this.recordsCache()) as Observable<HistoryRecord[]>;
+    return this.http
+      .get<HistoryRecord[]>(`${environment.host}/api/utilities`)
+      .pipe(
+        tap((records) => this.recordsCache.set(records)),
+        catchError((err) => {
+          this.recordsCache.set(null);
+          return of(err);
+        })
+      );
   }
 }
