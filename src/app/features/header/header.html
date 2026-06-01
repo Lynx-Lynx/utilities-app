@@ -1,0 +1,21 @@
+@let user = authService.user();
+
+<nav class="header">
+  <div class="header__tabs">
+    @for (tab of tabs(); track $index) {
+      <button 
+        class="header__tab" 
+        [class.tab--selected]="currentTab() === tab" 
+        (click)="switchTab(tab)"
+      >
+        {{ tab | titlecase }}
+      </button>
+    }
+  </div>
+  <div class="header__user">
+    <img class="header__logo" [src]="user?.picture" [alt]="user?.name">
+    <button class="header__logout" [tooltip]="'Sign Out'" (click)="logOut()">
+      <span class="material-symbols-outlined">logout</span>
+    </button>
+  </div>
+</nav>

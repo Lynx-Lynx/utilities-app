@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { Current } from './components/current/current';
-import { History } from './components/history/history';
-import { Settings } from './components/settings/settings';
-import { authGuard } from './guards/auth-guard';
-import { Login } from './components/login/login';
-import { Layout } from './components/layout/layout';
+import { Current } from './features/current/current';
+import { History } from './features/history/history';
+import { Settings } from './features/settings/settings';
+import { authGuard } from './core/guards/auth-guard';
+import { Login } from './features/login/login';
+import { Layout } from './core/layout/layout';
 
 export const routes: Routes = [
   {

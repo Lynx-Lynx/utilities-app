@@ -1,0 +1,81 @@
+<div class="tab-wrapper">
+  <h1 class="settings__header">Tariffs for {{dateService.lastMonthAndYear()}}</h1>
+  
+  <div class="settings__tariffs">
+  
+    <div class="settings__input-wrapper">
+      <label class="custom-prime-label" for="_water">Water</label>
+      <p-inputnumber
+        class="custom-prime-input"
+        fluid
+        inputId="_water"
+        mode="currency"
+        placeholder="0.00"
+        currency="UAH"
+        [min]="0"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="2"
+        [ngModel]="tariffsForm.water().value()"
+        (ngModelChange)="tariffsForm.water().value.set($event)"
+      />
+    </div>
+    
+    <div class="settings__input-wrapper">
+      <label class="custom-prime-label" for="_electricity">Electricity</label>
+      <p-inputnumber
+        class="custom-prime-input"
+        fluid
+        inputId="_electricity"
+        mode="currency"
+        placeholder="0.00"
+        currency="UAH"
+        [min]="0"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="2"
+        [ngModel]="tariffsForm.electricity().value()"
+        (ngModelChange)="tariffsForm.electricity().value.set($event)"
+      />
+    </div>
+    
+    <div class="settings__input-wrapper">
+      <label class="custom-prime-label" for="_security">Security</label>
+      <p-inputnumber
+        class="custom-prime-input"
+        fluid
+        inputId="_security"
+        mode="currency"
+        placeholder="0.00"
+        currency="UAH"
+        [min]="0"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="2"
+        [ngModel]="tariffsForm.security().value()"
+        (ngModelChange)="tariffsForm.security().value.set($event)"
+      />
+    </div>
+  
+    <div class="settings__input-wrapper">
+      <label class="custom-prime-label" for="_service">Service</label>
+      <p-inputnumber
+        class="custom-prime-input"
+        fluid
+        inputId="_service"
+        mode="currency"
+        placeholder="0.00"
+        currency="UAH"
+        [min]="0"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="2"
+        [ngModel]="tariffsForm.service().value()"
+        (ngModelChange)="tariffsForm.service().value.set($event)"
+      />
+    </div>
+  </div>
+  
+  <button class="button-bordered settings__save" (click)="submit()">Save</button>
+
+  <div class="settings__img">
+    <img src="../../../assets/svg/pokerface.png" alt="pockerface">
+  </div>
+
+</div>

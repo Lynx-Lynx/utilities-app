@@ -3,8 +3,8 @@ import { ApplicationConfig, inject, provideAppInitializer, provideBrowserGlobalE
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { authInterceptor } from './services/interceptor';
-import { AuthService } from './services/auth.service';
+import { authInterceptor } from './core/interceptor';
+import { AuthService } from './shared/services/auth.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

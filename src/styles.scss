@@ -1,6 +1,17 @@
 @use './styles/custom-primeng.scss';
 @use './styles/components.scss';
+@use './styles/scrollbar.scss' as *;
 @use './styles/variables.scss' as *;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include custom-scrollbar;
+}
+
+.cdk-virtual-scroll-viewport {
+  @include custom-scrollbar;
+}
 
 *,
 *:before,
@@ -135,4 +146,8 @@ button {
   &:active {
     transform: none;
   }
+}
+
+.tab-wrapper {
+  margin: 3rem 1rem;
 }

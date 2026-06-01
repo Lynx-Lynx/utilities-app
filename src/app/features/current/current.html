@@ -1,0 +1,65 @@
+<div class="tab-wrapper">
+  @if (alreadyPaid()) {
+    <h1 class="current__header">You have already paid for previous month.</h1>
+  } @else {
+    <h1 class="current__header">Register metricts for {{dateService.billingPeriodHeader()}}</h1>
+    <div class="current__container">
+      <div class="card">
+        <span class="material-symbols-outlined icon--customized grid-cell">water_drops</span>
+        <label class="custom-prime-label grid-cell" for="_water">Water (m³)</label>
+        <p-inputnumber
+          class="custom-prime-input grid-cell"
+          fluid
+          inputId="_water"
+          mode="decimal"
+          placeholder="0.000"
+          [min]="0"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="3"
+          [ngModel]="metricsForm.water().value()"
+          (ngModelChange)="metricsForm.water().value.set($event)"
+        />
+      </div>
+    
+      <div class="card">
+        <span class="material-symbols-outlined icon--customized grid-cell">bolt</span>
+        <label class="custom-prime-label grid-cell" for="_electricity">Electricity (kWh)</label>
+        <p-inputnumber
+          class="custom-prime-input grid-cell"
+          fluid
+          inputId="_electricity"
+          mode="decimal"
+          placeholder="0.00"
+          [min]="0"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [ngModel]="metricsForm.electricity().value()"
+          (ngModelChange)="metricsForm.electricity().value.set($event)"
+        />
+      </div>
+    
+      <div class="card">
+        <span class="material-symbols-outlined icon--customized grid-cell">heat</span>
+        <label class="custom-prime-label grid-cell" for="_heating">Heating (₴)</label>
+        <p-inputnumber
+          class="custom-prime-input grid-cell"
+          fluid
+          inputId="_heating"
+          mode="decimal"
+          placeholder="0.00"
+          [min]="0"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [ngModel]="metricsForm.heating().value()"
+          (ngModelChange)="metricsForm.heating().value.set($event)"
+        />
+      </div>
+    </div>
+    <button class="button-bordered current__submit" (click)="submit()">
+      Submit
+    </button>
+    <div class="current__img">
+      <img src="../../../assets/svg/frei-colour.png" alt="frei" />
+    </div>
+  }
+</div>

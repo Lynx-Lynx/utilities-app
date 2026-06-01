@@ -1,0 +1,41 @@
+@use '../../../styles/variables.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  font-family: "Unica One", sans-serif;
+  position: sticky;
+  top: 0;
+  background-color: #000;
+
+  &__tabs {
+    display: flex;
+  }
+
+  &__tab {
+    padding: 0 1rem 0.5rem;
+    border-bottom: 3px solid transparent;
+    font-size: 1.2rem;
+    align-items: flex-end;
+  }
+
+  &__logo {
+    border: 1px solid $graphite;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.tab--selected {
+  border-bottom: 3px solid $graphite;
+}

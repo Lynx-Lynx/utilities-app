@@ -1,0 +1,58 @@
+<div class="tab-wrapper">
+  <p-table
+    class="custom-prime-table"
+    groupRowsBy="year"
+    rowGroupMode="subheader"
+    [sortField]="'year'"
+    [sortOrder]="-1"
+    [scrollable]="true"
+    [scrollHeight]="'calc(100vh - 13.5rem)'"
+    [columns]="config()"
+    [paginator]="true"
+    paginatorStyleClass="custom-prime-paginator"
+    [showCurrentPageReport]="true"
+    [first]="1"
+    [totalRecords]="data().length"
+    [rows]="10"
+    [rowsPerPageOptions]="[5, 10, 25]"
+    [value]="data()"
+    (onPage)="setPage($event)"
+  >
+    <ng-template #header let-columns>
+      <tr>
+        @for (col of columns; track col) {
+          <th> {{ col.header }} </th>
+        }
+      </tr>
+    </ng-template>
+  
+    <ng-template #groupheader let-rowData>
+      <tr class="group-header" pRowGroupHeader>
+        <td [attr.colspan]="config().length">
+          <span class="font-bold">{{ rowData.year }}</span>
+        </td>
+      </tr>
+    </ng-template>
+  
+    <ng-template #body let-rowData let-columns="columns">
+      <tr>
+        @for (col of columns; track col) {
+        <td class="cell">
+          @switch (col.format) {
+            @case ('currency')
+            @case ('string') {
+              <span>{{ rowData[col.prop] }}</span>
+            }
+            @case ('nested') {
+              <div class="cell--nested">
+                <span>{{ rowData[col.prop].registered }} {{ col.metric }}</span>
+                <span>{{ rowData[col.prop].paid }} ₴</span>
+              </div>
+            }
+          }
+        </td>
+        }
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
