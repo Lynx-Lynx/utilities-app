@@ -17,7 +17,7 @@ export class DateService {
 
   public prevMonthIsPaid(record: HistoryRecord): boolean {
     const { billingPeriod, status } = record;
-    const paymentFor = Temporal.PlainDate.from(billingPeriod);
+    const paymentFor = Temporal.PlainYearMonth.from(billingPeriod);
     return (
       paymentFor.year === this.prevMonth.year &&
       paymentFor.month === this.prevMonth.month &&
