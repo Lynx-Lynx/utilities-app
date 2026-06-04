@@ -21,12 +21,11 @@ interface UtilityMetrics {
 })
 export class Current {
   public dateService = inject(DateService);
-  private http = inject(UtilitiesService);
-  private utilitiesService = inject(UtilitiesService);
+  public utilitiesService = inject(UtilitiesService);
   private destroyRef = inject(DestroyRef);
 
   public readonly alreadyPaid = computed(() => {
-    const record = this.http.latestRecord();
+    const record = this.utilitiesService.latestRecord();
     if (!record?.billingPeriod) return false;
     return this.dateService.prevMonthIsPaid(record);
   });
@@ -39,7 +38,7 @@ export class Current {
   protected readonly metricsForm = form(this.model);
 
   ngOnInit(): void {
-    this.http.getLatestRecord().pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
+    this.utilitiesService.getLatestRecord().pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
   public submit(): void {

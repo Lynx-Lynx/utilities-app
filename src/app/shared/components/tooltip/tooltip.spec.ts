@@ -1,22 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TooltipComponent } from './tooltip';
 
-import { Tooltip } from './tooltip';
-
-describe('Tooltip', () => {
-  let component: Tooltip;
-  let fixture: ComponentFixture<Tooltip>;
+describe('TooltipComponent', () => {
+  let component: TooltipComponent;
+  let fixture: ComponentFixture<TooltipComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Tooltip],
+      imports: [TooltipComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Tooltip);
+    fixture = TestBed.createComponent(TooltipComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('renders the text signal value inside .custom-tooltip', () => {
+    component.text.set('Sign Out');
+    fixture.detectChanges();
+    const el = (fixture.nativeElement as HTMLElement).querySelector('.custom-tooltip');
+    expect(el?.textContent?.trim()).toBe('Sign Out');
+  });
+
+  it('adds custom-tooltip--fading class when fading signal is true', () => {
+    component.fading.set(true);
+    fixture.detectChanges();
+    const el = (fixture.nativeElement as HTMLElement).querySelector('.custom-tooltip');
+    expect(el?.classList.contains('custom-tooltip--fading')).toBe(true);
   });
 });

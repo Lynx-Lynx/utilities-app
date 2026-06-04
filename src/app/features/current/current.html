@@ -1,6 +1,11 @@
 <div class="tab-wrapper">
   @if (alreadyPaid()) {
-    <h1 class="current__header">You have already paid for previous month.</h1>
+    <h1 class="current__header" style="margin-bottom: 2rem;">
+      You have already paid ₴{{utilitiesService.latestRecord()?.totalPaid}} for previous month.
+    </h1>
+    <div class="current__img">
+      <img src="../../../assets/svg/dicaprio.png" alt="celebrate" />
+    </div>
   } @else {
     <h1 class="current__header">Register metricts for {{dateService.billingPeriodHeader()}}</h1>
     <div class="current__container">
